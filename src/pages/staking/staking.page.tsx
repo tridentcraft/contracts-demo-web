@@ -8,6 +8,7 @@ import { EnterStaking } from './enter-staking.container';
 import { LeaveStaking } from './leave-staking.container';
 import { EmergencyWithdraw } from './emergency-withdraw.container';
 import { WithdrawRemainder } from './withdraw-remainder.container';
+import { RegisterProgram } from './register-program.container';
 
 export function StakingPage(): React.ReactElement {
   return (
@@ -18,6 +19,10 @@ export function StakingPage(): React.ReactElement {
 
       <Box mb="4">
         <ProgramInfo />
+      </Box>
+
+      <Box mb="4">
+        <RegisterProgram />
       </Box>
 
       <Box mb="4">
