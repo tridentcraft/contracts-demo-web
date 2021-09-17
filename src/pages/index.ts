@@ -1,0 +1,1 @@
+export { StakingPage } from './staking';
