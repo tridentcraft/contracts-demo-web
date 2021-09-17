@@ -24,6 +24,22 @@ export const useContractAddressInput = (options: {
   const toast = useToast();
   const { setValue } = useContractAddress();
 
+  // eslint-disable-next-line no-underscore-dangle
+  const _setAddress = React.useCallback(
+    (addr: string) => {
+      setAddress(addr);
+      localStorage.setItem(`contract-address-${key}`, addr);
+      setValue(key, addr);
+    },
+    [key, setValue]
+  );
+
+  React.useEffect(() => {
+    const addr = localStorage.getItem(`contract-address-${key}`) || '';
+    _setAddress(addr);
+    addressInputRef.current!.value = addr;
+  }, []);
+
   const inputUI = (
     <Box>
       <Text mb="2">{title}</Text>
@@ -33,15 +49,13 @@ export const useContractAddressInput = (options: {
         <Button
           onClick={() => {
             const addr = addressInputRef.current?.value || '';
-            setAddress(addr);
-            localStorage.setItem(`contract-address-${key}`, addr);
+            _setAddress(addr);
             toast({
               position: 'bottom-left',
               title: `Set ${title}`,
               status: 'success',
               isClosable: true,
             });
-            setValue(key, addr);
           }}
         >
           Submit
