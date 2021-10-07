@@ -1,3 +1,5 @@
+(window as any).global = window;
+
 import { ethers } from 'ethers';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -15,8 +17,10 @@ const Web3ReactJsonRpcProvider = createWeb3ReactRoot('jsonRpc');
 const getWeb3Provider = (provider: any) =>
   new ethers.providers.Web3Provider(provider);
 
-const getJsonRpcProvider = () =>
-  new ethers.providers.JsonRpcProvider('http://localhost:8545');
+const getJsonRpcProvider = (provider: any, connector: any) =>
+  new ethers.providers.JsonRpcProvider(
+    'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
+  );
 
 ReactDOM.render(
   <React.StrictMode>

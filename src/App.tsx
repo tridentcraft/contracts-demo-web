@@ -28,12 +28,16 @@ import {
   ThemeToggleButton,
 } from './components';
 import { ConnectWalletButton, ToolboxSideBar } from './containers';
-import { StakingPage } from './pages';
+import { StakingPage, GnosisSafePage } from './pages';
 
 const routes: IRouteItem[] = [
   {
     title: 'Staking',
     to: '/staking',
+  },
+  {
+    title: 'Gnosis Safe',
+    to: '/gnosis-safe',
   },
 ];
 
@@ -100,13 +104,14 @@ const App = (): JSX.Element => {
         </Box>
 
         <Box flex={3} height="100%" overflow="auto">
-          <Router>
-            <Switch>
-              <Route path="/staking">
-                <StakingPage />
-              </Route>
-            </Switch>
-          </Router>
+          <Switch>
+            <Route path="/staking">
+              <StakingPage />
+            </Route>
+            <Route path="/gnosis-safe">
+              <GnosisSafePage />
+            </Route>
+          </Switch>
         </Box>
       </Flex>
 

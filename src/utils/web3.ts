@@ -5,11 +5,14 @@ import { NetworkConnector } from '@web3-react/network-connector';
 
 export class Web3Utils {
   static injectedConnector = new InjectedConnector({
-    supportedChainIds: [31337],
+    supportedChainIds: [31337, 4],
   });
 
   static networkConnector = new NetworkConnector({
-    urls: { 31337: 'http://localhost:8545' },
+    urls: {
+      31337: 'http://localhost:8545',
+      4: 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+    },
     defaultChainId: 31337,
   });
 

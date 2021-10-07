@@ -40,6 +40,12 @@ export const ContractAddressToolbox = (): React.ReactElement => {
       key: 'coin',
     });
 
+  const { address: safeContractAddr, inputUI: safeAddrInputUI } =
+    useContractAddressInput({
+      title: 'Safe Contract Address',
+      key: 'gnosis-safe',
+    });
+
   return (
     <Box>
       <Box mb="4" boxShadow="md" px="2" py="2">
@@ -48,6 +54,10 @@ export const ContractAddressToolbox = (): React.ReactElement => {
 
       <Box mb="4" boxShadow="md" px="2" py="2">
         {coinAddrInputUI}
+      </Box>
+
+      <Box mb="4" boxShadow="md" px="2" py="2">
+        {safeAddrInputUI}
       </Box>
     </Box>
   );
